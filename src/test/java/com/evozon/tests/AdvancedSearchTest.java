@@ -1,5 +1,6 @@
 package com.evozon.tests;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -22,7 +23,7 @@ public class AdvancedSearchTest extends BaseTest {
 	AdvancedSearchSteps advancedSearchSteps;
 	SearchSteps searchSteps;
 
-	@Test 
+	@Test @Ignore
 	@Title("Test01_AdvancedSearch")
 		public void advancedSearchByPrice() {
 			advancedSearchSteps.openPage();
@@ -43,6 +44,7 @@ public class AdvancedSearchTest extends BaseTest {
 			advancedSearchSteps.setColorOption();
 			advancedSearchSteps.setSizeOption();
 			advancedSearchSteps.setGenderOption();
+			advancedSearchSteps.clickOnSearchButton();
 	}
 		
 

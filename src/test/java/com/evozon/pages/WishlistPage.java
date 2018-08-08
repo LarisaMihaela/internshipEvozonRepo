@@ -10,6 +10,8 @@ import net.thucydides.core.annotations.DefaultUrl;
 
 @DefaultUrl(Constants.BASE_URL + "/wishlist/")
 public class WishlistPage extends PageObject {
+	@FindBy(css = ".link-wishlist")
+	private WebElementFacade addToWishlistButton;
 	
 	@FindBy(css = ".input-text.qty")
 	private WebElementFacade productQuantity;
@@ -46,4 +48,9 @@ public class WishlistPage extends PageObject {
 	public void editProduct() {
 		editButton.click();
 	}
+	
+	public void clickWishlistButton() {
+		addToWishlistButton.click();
+	}
+	
 }

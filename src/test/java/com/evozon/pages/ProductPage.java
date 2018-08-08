@@ -18,8 +18,7 @@ public class ProductPage extends PageObject {
 	
 		Random rnd = new Random();
 
-		@FindBy(css = ".link-wishlist")
-		private WebElementFacade addToWishlistButton;
+		
 		
 		@FindBy(css = ".item.last")
 		private List<WebElement> randomProduct;
@@ -36,9 +35,6 @@ public class ProductPage extends PageObject {
 	        return productsList.get(rnd.nextInt(productsList.size()));
 	    }
 		
-		public void clickWishlistButton() {
-			addToWishlistButton.click();
-		}
 		
 		
 }

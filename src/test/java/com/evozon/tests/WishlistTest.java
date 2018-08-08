@@ -7,18 +7,24 @@ import org.junit.runner.RunWith;
 import com.evozon.steps.serenity.LoginSteps;
 import com.evozon.steps.serenity.SearchSteps;
 import com.evozon.steps.serenity.WishlistSteps;
+import com.evozon.utils.Constants;
 
+import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
+import net.thucydides.junit.annotations.UseTestDataFrom;
 
-@RunWith(SerenityRunner.class)
+@RunWith(SerenityParameterizedRunner.class)
+@UseTestDataFrom(value = Constants.CSV_FILES_PATH + "Test01_LoginWithValidCredentials.csv", separator = Constants.CSV_SEPARATOR)
 public class WishlistTest extends BaseTest {
 	String keyword = "music";
-	String email = "glarisamihaela@gmail.com";
-	String password = "serenitytest";
+	String email, password;
+	
 	@Steps
 	WishlistSteps wishlistSteps;
+	@Steps
 	SearchSteps searchSteps;
+	@Steps
 	LoginSteps loginSteps;
 	
 	

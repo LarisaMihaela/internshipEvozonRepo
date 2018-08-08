@@ -30,7 +30,7 @@ import net.thucydides.core.annotations.Steps;
 	        registerSteps.setPasswordField(password);
 	        registerSteps.setConfirmedPassword(password);
 	        registerSteps.clickRegisterButton();
-	        //registerSteps.isRegistered(firstName);
+	        registerSteps.isRegistered(firstName);
 	        registerSteps.clickLogOutButton();
 	}
 	}

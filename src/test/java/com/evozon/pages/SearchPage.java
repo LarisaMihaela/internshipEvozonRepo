@@ -43,9 +43,6 @@ public class SearchPage extends PageObject{
 	@FindBy(css = ".page-title")
 	private WebElementFacade searchTitlePage;
 
-	public void sendKeysToSearchBox(String keyword) {
-		typeInto(searchField, keyword);
-	}
 	@FindBy(css = ".price-box")
 	private List<WebElement> productPricesBox;
 	
@@ -54,7 +51,10 @@ public class SearchPage extends PageObject{
 
 
 
-
+	public void sendKeysToSearchBox(String keyword) {
+		typeInto(searchField, keyword);
+	}
+	
 	public void clickSearchButton() {
 		searchButton.click();
 	}
