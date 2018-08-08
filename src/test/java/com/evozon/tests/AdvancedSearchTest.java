@@ -5,22 +5,25 @@ import org.junit.runner.RunWith;
 
 import com.evozon.steps.serenity.AdvancedSearchSteps;
 import com.evozon.steps.serenity.SearchSteps;
+import com.evozon.utils.Constants;
 
+import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
+import net.thucydides.core.annotations.Title;
+import net.thucydides.junit.annotations.UseTestDataFrom;
 
-@RunWith(SerenityRunner.class)
+@RunWith(SerenityParameterizedRunner.class)
+@UseTestDataFrom(value = Constants.CSV_FILES_PATH + "Test01_AdvancedSearch.csv", separator = Constants.CSV_SEPARATOR)
 public class AdvancedSearchTest extends BaseTest {
-	private String name = "dress";
-	private String description = "dress";
-	private String priceFrom = "0";
-	private String priceTo = "400";
+	private String name, description, priceFrom, priceTo;
 
 	@Steps
 	AdvancedSearchSteps advancedSearchSteps;
 	SearchSteps searchSteps;
 
 	@Test 
+	@Title("Test01_AdvancedSearch")
 		public void advancedSearchByPrice() {
 			advancedSearchSteps.openPage();
 			advancedSearchSteps.sendKeysToPriceFrom(priceFrom);
