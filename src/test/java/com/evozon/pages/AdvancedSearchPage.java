@@ -11,9 +11,6 @@ import com.evozon.utils.*;
 @DefaultUrl(Constants.BASE_URL + "/catalogsearch/advanced/")
 public class AdvancedSearchPage extends PageObject {
 	
-//	@FindBy(css = "a[title='Advanced Search']")
-//	private WebElementFacade advancedSearchLink;
-	
 	@FindBy(css = "#price")
 	private WebElementFacade priceFromField;
 	
@@ -38,11 +35,6 @@ public class AdvancedSearchPage extends PageObject {
 	@FindBy(css = "#gender>:nth-child(1)")
 	private WebElementFacade genderOptionFemale;
 	
-
-	 
-//	public void clickOnAdvancedSearch(String advancedSearchLink) {
-//		searchButton.click();
-//	}
 	
 	public void sendKeysToNameField(String keyword) {
 		typeInto(nameField, keyword);

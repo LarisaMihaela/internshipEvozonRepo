@@ -15,9 +15,7 @@ import net.thucydides.core.annotations.Steps;
 			private String firstName = "John";
 			private String middleName = "Jr.";
 			private String lastName = "Doe";
-			//private String email = "j41235a5sd67rt@gmail.com";
 			private String password = "johndoetest";
-			//private String invalidEmail = "12345%";
 	
 	@Steps
 		RegisterSteps registerSteps;

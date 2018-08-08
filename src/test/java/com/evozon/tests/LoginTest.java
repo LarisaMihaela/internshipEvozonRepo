@@ -1,5 +1,6 @@
 package com.evozon.tests;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -13,12 +14,10 @@ import net.thucydides.junit.annotations.UseTestDataFrom;
 
 @RunWith(SerenityParameterizedRunner.class)
 @UseTestDataFrom(value = Constants.CSV_FILES_PATH + "Test01_LoginWithValidCredentials.csv", separator = Constants.CSV_SEPARATOR)
-//@RunWith(SerenityRunner.class)
 public class LoginTest extends BaseTest {
 	
-//	BaseTest bt = new BaseTest();
 	private String email,password;
-//	private String invalidPassword = "serenitytest23";
+	private String invalidPassword = "serenitytest23";
 	
 	@Steps
 		LoginSteps loginSteps;
@@ -30,16 +29,16 @@ public class LoginTest extends BaseTest {
 		loginSteps.setEmailNameField(email);
 		loginSteps.setPasswordField(password);
 		loginSteps.clickLoginButton();
-		//loginSteps.clickAccountHeader();
-		//loginSteps.clickLogoutButton();
+		loginSteps.clickAccountHeader();
+		loginSteps.clickLogoutButton();
 	}
 	
-//		@Test @Ignore
-//		public void loginWithInvalidCredentials() {
-//			loginSteps.openPage();
-//			loginSteps.setEmailNameField(email);
-//			loginSteps.setPasswordField(invalidPassword);
-//			loginSteps.clickLoginButton();
-//		}
+		@Test @Ignore
+		public void loginWithInvalidCredentials() {
+			loginSteps.openPage();
+			loginSteps.setEmailNameField(email);
+			loginSteps.setPasswordField(invalidPassword);
+			loginSteps.clickLoginButton();
+		}
 
 }

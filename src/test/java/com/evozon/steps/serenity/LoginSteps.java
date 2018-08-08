@@ -3,7 +3,6 @@ package com.evozon.steps.serenity;
 import com.evozon.pages.LoginPage;
 
 import net.thucydides.core.annotations.Step;
-import net.thucydides.core.annotations.StepGroup;
 
 public class LoginSteps extends LoginPage{
 	private LoginPage loginPage;
