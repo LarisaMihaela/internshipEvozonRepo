@@ -1,15 +1,20 @@
 package com.evozon.pages;
 
 import java.util.List;
+
+
 import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import com.evozon.utils.Constants;
+
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
-
+import net.thucydides.core.annotations.DefaultUrl;
+@DefaultUrl(Constants.BASE_URL)
 public class ProductPage extends PageObject {
 	
 		Random rnd = new Random();
