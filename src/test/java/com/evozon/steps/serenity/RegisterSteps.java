@@ -41,8 +41,8 @@ public class RegisterSteps extends RegisterPage {
 	public void clickRegisterButton() {
 		registerPage.clickRegisterButton();
 	};
-	public void isRegistered(String name) {
-		registerPage.isRegistered(name);
+	public void isRegistered() {
+		registerPage.isRegistered();
 	}
 	// Assert.assertTrue(accountPage.isLoggedIn(firstName));
 

@@ -1,6 +1,8 @@
 package com.evozon.pages;
 import static org.junit.Assert.assertTrue;
 
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.server.handler.GetCurrentUrl;
 
 import  com.evozon.utils.*;
 
@@ -15,7 +17,8 @@ import net.thucydides.core.annotations.DefaultUrl;
 
 public class RegisterPage extends PageObject{
 
-
+	
+	
 	@FindBy(css = "#firstname")
 	private WebElementFacade firstNameField;
 
@@ -42,6 +45,9 @@ public class RegisterPage extends PageObject{
 	
 	@FindBy(css = ".hello")
 	private WebElementFacade searchTitlePage;
+	
+	@FindBy(css = ".success-msg")
+	private WebElementFacade successMessage;
 
 
 
@@ -73,10 +79,11 @@ public class RegisterPage extends PageObject{
 		logOutButton.click();
 	}
 	
-	public void isRegistered(String name) {
-	 assertTrue(searchTitlePage.getText().toLowerCase().contains(name));
+	public void isRegistered() {
+    	assertTrue(successMessage.getText().contains("Thank you"));
 	    }
-
+	
+	
 
 
 }

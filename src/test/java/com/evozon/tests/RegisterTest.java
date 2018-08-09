@@ -4,33 +4,38 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import com.evozon.steps.serenity.RegisterSteps;
+import com.evozon.utils.Constants;
 
+import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
+import net.thucydides.core.annotations.Title;
+import net.thucydides.junit.annotations.UseTestDataFrom;
 
-	@RunWith(SerenityRunner.class)
+@RunWith(SerenityParameterizedRunner.class)
+@UseTestDataFrom(value = Constants.CSV_FILES_PATH + "01Test_Register.csv", separator = Constants.CSV_SEPARATOR)
 		public class RegisterTest extends BaseTest {
 		
 			BaseTest bt = new BaseTest();
-			private String firstName = "John";
-			private String middleName = "Jr.";
-			private String lastName = "Doe";
-			private String password = "johndoetest";
+			private String firstName, middleName, lastName, email, password, confirmedPasssword;
 	
 	@Steps
 		RegisterSteps registerSteps;
 	
 	@Test
+	@Title("01Test_Register")
 		public void registerWithValidCredentials() {
 			registerSteps.openPage();
 			registerSteps.setFirstNameField(firstName);
 			registerSteps.setMiddleNameField(middleName);
 	        registerSteps.setLastNameField(lastName);
-	        registerSteps.setEmailField(bt.getSaltString()+"@gmail.com");
+	        registerSteps.setEmailField(email);
 	        registerSteps.setPasswordField(password);
-	        registerSteps.setConfirmedPassword(password);
+	        registerSteps.setConfirmedPassword(confirmedPasssword);
 	        registerSteps.clickRegisterButton();
-	        registerSteps.isRegistered(firstName);
+	        registerSteps.isRegistered();
 	        registerSteps.clickLogOutButton();
 	}
+	
+
 	}
