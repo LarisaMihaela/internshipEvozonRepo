@@ -16,7 +16,7 @@ import net.thucydides.junit.annotations.UseTestDataFrom;
 @UseTestDataFrom(value = Constants.CSV_FILES_PATH + "Test01_LoginWithValidCredentials.csv", separator = Constants.CSV_SEPARATOR)
 public class LoginTest extends BaseTest {
 	
-	private String email,password;
+	private String email,password,result;
 	private String invalidPassword = "serenitytest23";
 	
 	@Steps
@@ -29,6 +29,7 @@ public class LoginTest extends BaseTest {
 		loginSteps.setEmailNameField(email);
 		loginSteps.setPasswordField(password);
 		loginSteps.clickLoginButton();
+		loginSteps.checkValidationAdvice(result);
 		loginSteps.clickAccountHeader();
 		loginSteps.clickLogoutButton();
 	}

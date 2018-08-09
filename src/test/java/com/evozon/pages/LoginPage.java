@@ -30,6 +30,18 @@ public class LoginPage extends PageObject{
 	@FindBy(css = ".skip-link.skip-account.skip-active>.label")
 	private WebElementFacade accountHeader;
 	
+	@FindBy(css= "#advice-required-entry-email")
+	private WebElementFacade requiredEmailFieldValidationAdvice;
+	
+	@FindBy(css= "#advice-validate-password-pass")
+	private WebElementFacade passwordTooShortValidationAdvice;
+	
+	@FindBy(css = "#advice-required-entry-pass")
+	private WebElementFacade requiredPasswordFieldValidationAdvice;
+	
+	@FindBy(css = ".error-msg")
+	private WebElementFacade errorLoginMessage;
+	
 	public void setEmailField(String email) {
 		typeInto(emailField, email);
 	}
@@ -52,6 +64,28 @@ public class LoginPage extends PageObject{
 	
 	public void clickLogoutButton() {
 		logoutButton.click();
+	}
+	
+	public void getInvalidLoginMessage() {
+		errorLoginMessage.getText();
+	}
+	
+	public void checkValidationAdvice(String result) {
+		switch(result) {
+		case("PasswordTooShort"):
+			assertTrue(passwordTooShortValidationAdvice.getText().equalsIgnoreCase("Please enter 6 or more characters without leading or trailing spaces."));
+			break;
+		case("RequiredEmailField"):
+			assertTrue(requiredEmailFieldValidationAdvice.getText().equalsIgnoreCase("This is a required field."));
+			break;
+		case("RequiredPasswordField"):
+			assertTrue(requiredPasswordFieldValidationAdvice.getText().equalsIgnoreCase("This is a required field."));
+		case ("invalidCredentials"):
+			getInvalidLoginMessage();
+             break;
+		//default
+		
+		}
 	}
 	
 	

@@ -42,4 +42,9 @@ public class LoginSteps extends LoginPage{
 		loginPage.clickAccountHeader();
 	}
 	
+	@Step
+	public void checkValidationAdvice(String result) {
+		loginPage.checkValidationAdvice(result);
+	}
+	
 }

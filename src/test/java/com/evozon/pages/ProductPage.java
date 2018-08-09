@@ -5,7 +5,9 @@ import java.util.List;
 
 import java.util.Random;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import com.evozon.utils.Constants;
 
@@ -23,10 +25,17 @@ public class ProductPage extends PageObject {
 		@FindBy(css = ".item.last")
 		private List<WebElement> randomProduct;
 		
-		
 		@FindBy(css = ".products-grid.products-grid--max-3-col.first.last.odd")
 		private WebElementFacade gridProduct;
 		
+		@FindBy(css = ".product-image")
+		private WebElementFacade productImage;
+		
+		@FindBy(css = ".input-text.qty")
+		private WebElementFacade inputTextQuantity;
+		
+		@FindBy(css = ".input-box>select[name = \"super_attribute[180]\"]")
+		private WebElementFacade sizeOptionElement;
 		
 		
 		public WebElement getRandomProduct() {
@@ -34,6 +43,32 @@ public class ProductPage extends PageObject {
 	        Random rnd = new Random();
 	        return productsList.get(rnd.nextInt(productsList.size()));
 	    }
+		
+		public void clickOnProduct() {
+			productImage.click();
+		}
+		
+		public void clearQuantityField() {
+			inputTextQuantity.clear();
+		}
+		
+		public void setQuantity(String quantityToSend) {
+			inputTextQuantity.sendKeys(quantityToSend);
+		}
+		
+		public void selectRandomSize() {
+			WebElement sizeOptions = sizeOptionElement;
+			Select oSelect = new Select(sizeOptions);
+			List<WebElement> allOptions = oSelect.getOptions();
+			for (int i = 0; i < allOptions.size(); i++) {
+				System.out.println(allOptions.get(i));
+			}
+			oSelect.selectByIndex(rnd.nextInt());
+			System.out.println(oSelect.getFirstSelectedOption());
+			
+		}
+		
+		
 		
 		
 		

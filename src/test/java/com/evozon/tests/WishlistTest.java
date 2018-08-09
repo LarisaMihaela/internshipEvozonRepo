@@ -4,7 +4,9 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import com.evozon.pages.ProductPage;
 import com.evozon.steps.serenity.LoginSteps;
+import com.evozon.steps.serenity.ProductSteps;
 import com.evozon.steps.serenity.SearchSteps;
 import com.evozon.steps.serenity.WishlistSteps;
 import com.evozon.utils.Constants;
@@ -17,7 +19,7 @@ import net.thucydides.junit.annotations.UseTestDataFrom;
 @RunWith(SerenityParameterizedRunner.class)
 @UseTestDataFrom(value = Constants.CSV_FILES_PATH + "Test01_LoginWithValidCredentials.csv", separator = Constants.CSV_SEPARATOR)
 public class WishlistTest extends BaseTest {
-	String keyword = "music";
+	String keyword = "shirt";
 	String email, password;
 	
 	@Steps
@@ -26,6 +28,8 @@ public class WishlistTest extends BaseTest {
 	SearchSteps searchSteps;
 	@Steps
 	LoginSteps loginSteps;
+	@Steps
+	ProductSteps productSteps;
 	
 	
 	@Test 
@@ -36,17 +40,24 @@ public class WishlistTest extends BaseTest {
 		loginSteps.clickLoginButton();
 		searchSteps.sendKeysToSearchBox(keyword);
 		searchSteps.clickOnSearchButton();
-		wishlistSteps.getRandomProduct();
+		productSteps.getRandomProduct();
+		productSteps.clickOnProduct();
+		productSteps.clearQuantityField();
+		productSteps.setQuantity("10");
+		productSteps.selectRandomSize();
 		wishlistSteps.clickWishlistButton();
+		
+		
 	}
-	
 	
 	@Test @Ignore
 	public void addRandomProductToWishlistWithoutLogin() {
 		wishlistSteps.openPage();
 		searchSteps.sendKeysToSearchBox(keyword);
 		searchSteps.clickOnSearchButton();
-		wishlistSteps.getRandomProduct();
+		productSteps.getRandomProduct();
 		wishlistSteps.clickWishlistButton();
 	}
+	
+	
 }

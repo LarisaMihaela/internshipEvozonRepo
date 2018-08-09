@@ -8,7 +8,7 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 
 
-@DefaultUrl(Constants.BASE_URL + "/wishlist/")
+@DefaultUrl(Constants.BASE_URL + "//wishlist//")
 public class WishlistPage extends PageObject {
 	@FindBy(css = ".link-wishlist")
 	private WebElementFacade addToWishlistButton;
@@ -52,5 +52,7 @@ public class WishlistPage extends PageObject {
 	public void clickWishlistButton() {
 		addToWishlistButton.click();
 	}
+	
+
 	
 }

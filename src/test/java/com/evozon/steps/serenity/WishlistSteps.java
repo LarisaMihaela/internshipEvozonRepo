@@ -15,15 +15,37 @@ public class WishlistSteps extends WishlistPage {
 	public void openPage() {
 		productPage.open();
 	}
-	
-	@Step
-	public WebElement getRandomProduct() {
-		return productPage.getRandomProduct();
-	}
-	
+
 	@Step
 	public void clickWishlistButton() {
 		wishlistPage.clickWishlistButton();
 	}
+	
+	@Step
+	public void  removeProductFromWishlist() {
+		wishlistPage.removeProductFromWishlist();
+	}
+	
+	@Step
+	public void  setQuantity(String quantity) {
+		wishlistPage.setQuantity(quantity);
+	}
+	
+	@Step
+	public void addComment(String comment) {
+		wishlistPage.addComment(comment);
+	}
+	
+	@Step
+	public void updateProductInfo(String comment) {
+		wishlistPage.updateProductInfo();
+	}
+	
+	@Step
+	public void editProduct() {
+		wishlistPage.editProduct();
+	}
+	
+	
 	
 }
