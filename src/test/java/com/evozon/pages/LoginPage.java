@@ -28,7 +28,7 @@ public class LoginPage extends PageObject{
 	private WebElementFacade logoutButton;
 	
 	@FindBy(css = ".skip-link.skip-account.skip-active>.label")
-	private WebElementFacade accountHeader;
+	private WebElementFacade headersContainer;
 	
 	@FindBy(css= "#advice-required-entry-email")
 	private WebElementFacade requiredEmailFieldValidationAdvice;
@@ -41,6 +41,9 @@ public class LoginPage extends PageObject{
 	
 	@FindBy(css = ".error-msg")
 	private WebElementFacade errorLoginMessage;
+	
+	@FindBy(css = ".skip-link.skip-account>.label")
+	private WebElementFacade accountHeader;
 	
 	public void setEmailField(String email) {
 		typeInto(emailField, email);

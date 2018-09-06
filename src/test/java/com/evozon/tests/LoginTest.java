@@ -20,6 +20,8 @@ public class LoginTest extends BaseTest {
 	@Test
 	public void madisonFlowSteps() {
 		loginFlowSteps.loginWithValidCredentials();
+		loginFlowSteps.logOut();
+		
 		//loginFlowSteps.logOut();
 	}
 	

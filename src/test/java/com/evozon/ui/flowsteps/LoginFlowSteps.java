@@ -25,9 +25,7 @@ public class LoginFlowSteps {
 		loginSteps.setEmailNameField(Constants.EMAIL);
 		loginSteps.setPasswordField(Constants.PASSWORD);
 		loginSteps.clickLoginButton();
-		//loginSteps.checkValidationAdvice(result,name);
-		//loginSteps.clickAccountHeader();
-		//loginSteps.clickLogoutButton();
+		//loginSteps.checkValidationAdvice(result);
 	}
 	
 	@Step

@@ -10,7 +10,7 @@ public class ApiLoginFlowSteps {
     ApiLoginSteps apiLoginSteps;
 	
 	@StepGroup
-	public void loginApi() {
-		apiLoginSteps.loginAsUser();
+	public void loginApi() throws Exception {
+		apiLoginSteps.apiLoginAsUser();
 	}
 }
