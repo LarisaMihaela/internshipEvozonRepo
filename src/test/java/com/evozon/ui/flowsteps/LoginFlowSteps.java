@@ -22,8 +22,8 @@ public class LoginFlowSteps {
 	@Title("Test01_LoginWithValidCredentials")
 		public void loginWithValidCredentials() {
 		loginSteps.openPage();
-		loginSteps.setEmailNameField(Constants.EMAIL);
-		loginSteps.setPasswordField(Constants.PASSWORD);
+		loginSteps.setEmailNameField(Constants.REGISTER_EMAIL);
+		loginSteps.setPasswordField(Constants.REGISTER_PASSWORD);
 		loginSteps.clickLoginButton();
 		//loginSteps.checkValidationAdvice(result);
 	}
