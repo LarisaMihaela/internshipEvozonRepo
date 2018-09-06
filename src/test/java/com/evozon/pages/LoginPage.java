@@ -73,6 +73,9 @@ public class LoginPage extends PageObject{
 		errorLoginMessage.getText();
 	}
 	
+	/*
+	 * Fix checkValidationAdviceMethod
+	 * */
 	public void checkValidationAdvice(String result) {
 		switch(result) {
 		case("PasswordTooShort"):

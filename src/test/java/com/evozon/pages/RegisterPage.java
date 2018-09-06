@@ -4,10 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.server.handler.GetCurrentUrl;
-
-import com.evozon.utils.*;
+import com.evozon.utils.Constants;
 
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
@@ -53,13 +50,6 @@ public class RegisterPage extends PageObject {
 
 	@FindBy(css = "#form-validate .input-box")
 	private List<WebElementFacade> fieldsToComplete;
-	
-	
-
-	public void checkThatTheFieldHasTheErrorMessageDisplayed(String fieldName,String validationErrorMessage) {
-
-		
-	}
 
 	public void setFirstNameField(String firstName) {
 		typeInto(firstNameField, firstName);
@@ -98,5 +88,3 @@ public class RegisterPage extends PageObject {
 	}
 
 }
-
-

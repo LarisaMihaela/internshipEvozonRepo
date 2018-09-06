@@ -79,40 +79,35 @@ public class ApiLoginSteps extends AbstractApiSteps {
     }
 	
 	 public static String getFormKey(String response){ // extracts the value with REGEX
-	        Pattern pattern = Pattern.compile("type=\"hidden\" value=\"(.*?)\"", Pattern.CASE_INSENSITIVE);
-	        Matcher matcher = pattern.matcher(response);
-	        if (matcher.find()){
-	            return matcher.group(1);
-	        }
-	        return null;
+	     Pattern pattern = Pattern.compile("type=\"hidden\" value=\"(.*?)\"", Pattern.CASE_INSENSITIVE);
+	     Matcher matcher = pattern.matcher(response);
+	     if (matcher.find()){
+	         return matcher.group(1);
+	     }
+	     return null;
 	    }
 
-	    public static String postHTML(String urlToWrite, Object requestBody) throws Exception
-	    {
-	        HttpClient httpClient= HttpClients.createDefault();
-	        HttpPost httpPost=new HttpPost(urlToWrite);
-	        Field[] fields=requestBody.getClass().getDeclaredFields();
-	        List<NameValuePair> params=new ArrayList<NameValuePair>();
-	        String getResponse=getHTML("http://qa1.dev.evozon.com/customer/account/login");
-	        String formKey=getFormKey(getResponse);
-	        params.add(new BasicNameValuePair("form_key",formKey));
-	        for(int i=0;i<fields.length;i++)
-	        {
-	            fields[i].setAccessible(true);
-	            if(fields[i].get(requestBody)!=null) {
-	                params.add(new BasicNameValuePair(fields[i].getName(), fields[i].get(requestBody).toString()));
-	            }
-	            else
-	            {
-	                params.add(new BasicNameValuePair(fields[i].getName(), null));
+	 public static String postHTML(String urlToWrite, Object requestBody) throws Exception{
+	     HttpClient httpClient= HttpClients.createDefault();
+	     HttpPost httpPost=new HttpPost(urlToWrite);
+	     Field[] fields=requestBody.getClass().getDeclaredFields();
+	     List<NameValuePair> params=new ArrayList<NameValuePair>();
+	     String getResponse=getHTML("http://qa1.dev.evozon.com/customer/account/login");
+	     String formKey=getFormKey(getResponse);
+	     params.add(new BasicNameValuePair("form_key",formKey));
+	     for(int i=0;i<fields.length;i++){
+	    	 fields[i].setAccessible(true);
+	         if(fields[i].get(requestBody)!=null) {
+	        	 params.add(new BasicNameValuePair(fields[i].getName(), fields[i].get(requestBody).toString()));
+	        	 }else{
+	             params.add(new BasicNameValuePair(fields[i].getName(), null));
 	            }
 	        }
-	        httpPost.setEntity(new UrlEncodedFormEntity(params,"UTF-8"));
-	        httpPost.setHeader("User-Agent-WW","web_agent");
-	        HttpResponse response=httpClient.execute(httpPost);
-	        HttpEntity entity=response.getEntity();
-	        System.out.println(response.getStatusLine());
-	        return entity.toString();
-
+	     httpPost.setEntity(new UrlEncodedFormEntity(params,"UTF-8"));
+	     httpPost.setHeader("User-Agent-WW","web_agent");
+	     HttpResponse response=httpClient.execute(httpPost);
+	     HttpEntity entity=response.getEntity();
+	     System.out.println(response.getStatusLine());
+	     return entity.toString();
 	    }
 }

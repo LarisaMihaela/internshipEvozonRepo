@@ -1,11 +1,8 @@
 package com.evozon.pages;
 
 import java.util.List;
-
-
 import java.util.Random;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
@@ -17,11 +14,9 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 @DefaultUrl(Constants.BASE_URL)
 public class ProductPage extends PageObject {
-	
+
 		Random rnd = new Random();
 
-		
-		
 		@FindBy(css = ".item.last")
 		private List<WebElement> randomProduct;
 		
@@ -66,10 +61,5 @@ public class ProductPage extends PageObject {
 			oSelect.selectByIndex(rnd.nextInt());
 			System.out.println(oSelect.getFirstSelectedOption());
 			
-		}
-		
-		
-		
-		
-		
+		}										
 }

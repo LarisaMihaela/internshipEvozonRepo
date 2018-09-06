@@ -1,9 +1,4 @@
 package com.evozon.pages;
-import com.evozon.utils.*;
-
-import junit.framework.Assert;
-
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -13,11 +8,13 @@ import java.util.List;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import com.evozon.utils.Constants;
+
+import junit.framework.Assert;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
-
 
 
 @DefaultUrl(Constants.BASE_URL)
@@ -49,8 +46,6 @@ public class SearchPage extends PageObject{
 	@FindBy(css = ".note-msg")
 	private WebElement noteMessage;
 
-
-
 	public void sendKeysToSearchBox(String keyword) {
 		typeInto(searchField, keyword);
 	}
@@ -60,7 +55,7 @@ public class SearchPage extends PageObject{
 	}
 
 	public int getExpectedProductsNumber() {
-		//	    	String countProducts = driver.findElement(productCounter).getText();
+		//String countProducts = driver.findElement(productCounter).getText();
 		String countProductsNumber=productCounter.getText().split(" ")[0];
 		return Integer.parseInt(countProductsNumber);
 	}
@@ -93,7 +88,6 @@ public class SearchPage extends PageObject{
 		assertTrue(keywordIsDisplayed.getText().toLowerCase().contains("glasses"));
 	}
 
-
 	Boolean ascendingCheck(List<Double> productsPriceList){ 
 		boolean isAscendingSorted=false;
 		for (int i = 0; i < productsPriceList.size()-1; i++) {
@@ -117,24 +111,5 @@ public class SearchPage extends PageObject{
 		if(!ascendingCheck(productsPriceList)){
 			Assert.fail("Not in ascending order");
 		}
-
-
-
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

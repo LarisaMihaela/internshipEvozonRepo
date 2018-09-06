@@ -52,7 +52,4 @@ public class WishlistPage extends PageObject {
 	public void clickWishlistButton() {
 		addToWishlistButton.click();
 	}
-	
-
-	
 }
