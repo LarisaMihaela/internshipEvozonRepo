@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import com.evozon.ui.flowsteps.LoginFlowSteps;
+import com.evozon.ui.flowsteps.ProductPageFlowSteps;
 import com.evozon.ui.flowsteps.RegisterUiFlowSteps;
 import com.evozon.ui.flowsteps.SearchPageUiFlowStep;
 
@@ -23,6 +24,8 @@ public class UserFlowSteps extends BaseTest {
 	RegisterUiFlowSteps registerFlowSteps;
 	@Steps
 	SearchPageUiFlowStep searchPageUiFlowSteps;
+	@Steps
+	ProductPageFlowSteps productPageFlowSteps;
 	
 	@Test @Ignore
 	public void registerUser() {
@@ -30,10 +33,11 @@ public class UserFlowSteps extends BaseTest {
 	}
 	
 	@Test
-	public void madisonFlowSteps() {
+	public void buyProduct() {
 		
 		loginFlowSteps.loginWithValidCredentials();
 		searchPageUiFlowSteps.searchWithValidKeyword();
+		productPageFlowSteps.setProductDetails();
 		loginFlowSteps.logOut();
 
 	}

@@ -32,6 +32,9 @@ public class ProductPage extends PageObject {
 		@FindBy(css = ".input-box>select[name = \"super_attribute[180]\"]")
 		private WebElementFacade sizeOptionElement;
 		
+		@FindBy(css = ".add-to-cart-buttons>button.btn-cart")
+		private WebElementFacade addToCartButton;
+		
 		
 		public WebElement getRandomProduct() {
 	        List<WebElement> productsList = (List<WebElement>) randomProduct;
@@ -39,19 +42,24 @@ public class ProductPage extends PageObject {
 	        return productsList.get(rnd.nextInt(productsList.size()));
 	    }
 		
-		public void clickOnProduct() {
+		public void clickOnProduct() {	
 			productImage.click();
+
 		}
 		
 		public void clearQuantityField() {
+			
 			inputTextQuantity.clear();
 		}
 		
 		public void setQuantity(String quantityToSend) {
+			if(inputTextQuantity.isDisplayed()) {
 			inputTextQuantity.sendKeys(quantityToSend);
+			}
 		}
 		
 		public void selectRandomSize() {
+			if(sizeOptionElement.isDisplayed()) {
 			WebElement sizeOptions = sizeOptionElement;
 			Select oSelect = new Select(sizeOptions);
 			List<WebElement> allOptions = oSelect.getOptions();
@@ -60,6 +68,14 @@ public class ProductPage extends PageObject {
 			}
 			oSelect.selectByIndex(rnd.nextInt());
 			System.out.println(oSelect.getFirstSelectedOption());
-			
-		}										
+			}
+		}
+		
+		public void addProductToCart() {
+			addToCartButton.click();
+		}
+		
+//		public boolean getProductList() {
+//			List<WebElementFacade> productList = 
+//		}
 }

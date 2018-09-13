@@ -5,12 +5,11 @@ import org.openqa.selenium.WebElement;
 import com.evozon.pages.ProductPage;
 
 import net.thucydides.core.annotations.Step;
-import net.thucydides.core.annotations.StepGroup;
 
 public class ProductSteps extends ProductPage {
 	private ProductPage productPage;
 	
-	@StepGroup
+	@Step
 	
 	public void openPage() {
 		productPage.open();
@@ -39,5 +38,10 @@ public class ProductSteps extends ProductPage {
 	@Step
 	public WebElement getRandomProduct() {
 		return productPage.getRandomProduct();
+	}
+	
+	@Step
+	public void clickAddButton() {
+		productPage.addProductToCart();
 	}
 }

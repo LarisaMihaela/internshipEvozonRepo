@@ -23,7 +23,7 @@ public class SearchPageUiFlowStep {
 		searchSteps.sendKeysToSearchBox(Constants.VALID_KEYWORD_TO_SEARCH);
 		searchSteps.clickOnSearchButton();
 		searchSteps.clickSortDropDown();
-		searchSteps.verifyIfProductsAreSortedByPrice();
+		//searchSteps.verifyIfProductsAreSortedByPrice();
 		//searchSteps.compareExpectedAndActualProductsNumber(); 
 		searchSteps.checkIfKeywordIsDisplayedOnPage();
 	}
